@@ -1,0 +1,19 @@
+# Bank Marketing Classification — project dependencies
+#
+# Web application
+streamlit>=1.32,<2.0
+
+# Machine learning
+# Keep this version aligned with the version used to serialize the saved .joblib models.
+scikit-learn==1.6.1
+
+# Data manipulation
+numpy
+pandas
+
+# Visualisation used in the notebook and application
+matplotlib
+seaborn
+
+# Loading and saving trained model pipelines
+joblib
