@@ -4,13 +4,13 @@ Run from the project root:
     streamlit run app.py
 
 Expected files:
-    outputs/logistic_regression.joblib
-    outputs/decision_tree.joblib
-    outputs/knn.joblib
-    outputs/gaussian_naive_bayes.joblib
-    outputs/svm.joblib
-    outputs/feature_information.joblib
-    outputs/model_comparison.csv
+    Model/logistic_regression.joblib
+    Model/decision_tree.joblib
+    Model/knn.joblib
+    Model/gaussian_naive_bayes.joblib
+    Model/svm.joblib
+    Model/feature_information.joblib
+    Model/model_comparison.csv
 """
 
 from pathlib import Path
@@ -109,7 +109,7 @@ training_results = load_training_comparison()
 if missing_models:
     st.error(
         "Some saved model files are missing. Run the notebook's model-training "
-        "and save-model sections, then place the generated files in `outputs/`."
+        "and save-model sections, then place the generated files in `Model/`."
     )
     for item in missing_models:
         st.write(f"- `{item}`")
@@ -117,7 +117,7 @@ if missing_models:
 
 if feature_info is None:
     st.error(
-        "`outputs/feature_information.joblib` was not found. "
+        "`Model/feature_information.joblib` was not found. "
         "Run the analysis notebook through its feature-information save section."
     )
     st.stop()
@@ -352,7 +352,7 @@ elif page == "Training Results":
     )
 
     if training_results is None:
-        st.warning("`outputs/model_comparison.csv` was not found. Run the analysis notebook first.")
+        st.warning("`Model/model_comparison.csv` was not found. Run the analysis notebook first.")
     else:
         expected_columns = [
             "Model", "Training Accuracy", "Testing Accuracy", "Accuracy Gap (pp)",
